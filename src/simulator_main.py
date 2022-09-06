@@ -91,12 +91,12 @@ if __name__ == '__main__':
     current_path = str(pathlib.Path(__file__).parent.resolve())
     
     # example of enviroment setup directory.
-    env_setup = {"hand": {"path": current_path+"/resources/2v2_Demo/hand/2v2_Demo.urdf",
+    env_setup = {"hand": {"path": current_path+"/resources/2v2_hand/hand/2v2_hand.urdf", #2v2_Demo/hand/2v2_Demo.urdf
                         "position": [0.0, 0.0, 0.03],
                         "orientation": p.getQuaternionFromEuler([0, 0, 0]), # [0, pi/2, pi/2]
                         "scaling": 1.0, #0.25,
                         "fixed": True,
-                        "starting_joint_angles": [-.695, 1.487, 0.695, -1.487],
+                        "starting_joint_angles": [-.529, 1.223, 0.529, -1.223],
                         "palm_color": [0.3, 0.3, 0.3, 1],
                         "segment_colors":[[1, 0.5, 0, 1], [0.3, 0.3, 0.3, 1], [1, 0.5, 0, 1], [0.3, 0.3, 0.3, 1]]},
                  "object": {"path":current_path + "/resources/2v2_Demo/object/2v2_Demo_cuboid_small.urdf",
@@ -105,19 +105,21 @@ if __name__ == '__main__':
                         "scaling": 1,
                         "fixed": False,
                         "color": [0.3, 0.3, 0.3, 1]},
-                 "trial" : {"data_path" : current_path + '/data/test1/',
+                 "trial" : {"data_path" : current_path + '/data/',
                             "goal_locations" : {
                                 "x" : [0,      0.1,    0.1,    0.1,      0,      -0.1,      -0.1,   -0.1],  # full astrisk test
                                 "y" : [0.2067, 0.2067, 0.1067, 0.0067, 0.0067,   0.0067,   0.1067,  0.2067]
                             }}}
 
 
-    # start_time = time.time()
-    # asterisk_simulation(env_setup= env_setup, gui=True)
-    # gui_time = time.time() - start_time
-    # print(f"\n\nTime for a gui run: {gui_time}")
-    start_time2 = time.time()
-    asterisk_simulation(env_setup= env_setup, gui=False)
-    nongui_time = time.time() - start_time2
-    # \nTime for a gui run: {gui_time}
-    print(f"\n\nTime for a non-gui run: {nongui_time}")
+    start_time = time.time()
+    asterisk_simulation(env_setup= env_setup, gui=True)
+    gui_time = time.time() - start_time
+    print(f"\n\nTime for a gui run: {gui_time}")
+
+
+    # start_time2 = time.time()
+    # asterisk_simulation(env_setup= env_setup, gui=False)
+    # nongui_time = time.time() - start_time2
+    # # \nTime for a gui run: {gui_time}
+    # print(f"\n\nTime for a non-gui run: {nongui_time}")

@@ -50,7 +50,8 @@ class sim_tester():
                                 cameraTargetPosition=[0, 0.05, 0.5])
         p.configureDebugVisualizer(p.COV_ENABLE_SHADOWS,0)
         
-        joint_angles = [0, 0, 0, 0] #[-pi/2, 0, pi/2, 0]
+        # joint_angles = [0, 0, 0, 0] #[-pi/2, 0, pi/2, 0]
+        joint_angles = [-pi/4, 0, pi/4, 0]
         for i in range(0, p.getNumJoints(hand_id)):
             p.resetJointState(hand_id, i, joint_angles[i])
             p.changeVisualShape(hand_id, i, rgbaColor=hand_color[i])
